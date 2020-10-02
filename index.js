@@ -2,28 +2,19 @@ const express = require('express');
 const { ApolloServer, gql } = require('apollo-server-express');
 const cors = require('cors')
 const app = express();
+const schemas = require('./schema')
+const resolvers = require('./resolvers')
+const models = require('./models/model')
 
 app.use(cors());
 
-const schema = gql `
-  type Query {
-    me: User! 
-  }
-
-  type User {
-    username: String!,
-  }
-`;
-
-const resolvers = {
-  Query: {
-    me: () => ({ username: 'Raphael Machado' })
-  }
-}
-
 const server = new ApolloServer({
-  typeDefs: schema,
-  resolvers
+  typeDefs: schemas,
+  resolvers,
+  context: {
+    models,
+    me: models.users[0]
+  }
 });
 
 server.applyMiddleware({ app, path: '/graphql' });
