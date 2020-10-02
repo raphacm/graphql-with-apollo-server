@@ -1,0 +1,20 @@
+{
+  "name": "graphql-with-apollo-server",
+  "version": "1.0.0",
+  "description": "Simple project to study graphql",
+  "main": "index.js",
+  "dependencies": {
+    "apollo-server": "^2.18.1",
+    "apollo-server-express": "^2.18.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "graphql": "^15.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Raphael Machado",
+  "license": "ISC"
+}
